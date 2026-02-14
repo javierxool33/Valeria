@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Valeria 💗</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    font-family: 'Segoe UI', cursive;
+    background: radial-gradient(circle at bottom, #1a1a40, #0b0f2f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+/* Contenedor principal */
+.portal{
+    text-align:center;
+    z-index:2;
+}
+
+/* Texto */
+h1{
+    font-weight:300;
+    font-size:2em;
+    margin-bottom:20px;
+    line-height:1.5em;
+}
+
+.nombre{
+    color:#ffd6ec;
+    font-size:2.6em;
+    text-shadow:0 0 15px rgba(255,182,193,0.8);
+}
+
+/* Botón */
+button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    background:#ffb6c1;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(255,182,193,0.6);
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ffc9d6;
+}
+
+/* Estrellas */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/*jardin*/
+
+.jardin{
+    position:absolute;
+    text-align:center;
+    z-index:2;
+    animation:fadeIn 2s;
+}
+
+.jardin h2{
+    font-weight:300;
+    color:#ffd6ec;
+    margin-bottom:10px;
+}
+
+.jardin p{
+    opacity:0.8;
+}
+
+/* Estrellas clickeables */
+.starBtn{
+    position:absolute;
+    font-size:22px;
+    cursor:pointer;
+    animation:flotar 4s ease-in-out infinite;
+    transition:0.3s;
+}
+
+.starBtn:hover{
+    transform:scale(1.5);
+}
+
+@keyframes flotar{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0px);}
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.cartaEscena{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(5,5,20,0.95);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:5;
+}
+
+.papel{
+    width:70%;
+    max-width:600px;
+    background:#fffafc;
+    color:#444;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 0 40px rgba(255,182,193,0.4);
+    font-size:20px;
+    line-height:1.7em;
+    font-family:Georgia, serif;
+}
+.cofreEscena{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(10,10,35,0.95);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:6;
+    text-align:center;
+}
+
+.cofreContainer h2{
+    color:#ffd6ec;
+    font-weight:300;
+}
+
+#cofreIcono{
+    font-size:80px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+#cofreIcono:hover{
+    transform:scale(1.2);
+}
+
+.corazon{
+    position:absolute;
+    font-size:20px;
+    animation:caer 3s linear forwards;
+}
+
+@keyframes caer{
+    from{transform:translateY(-10vh); opacity:1;}
+    to{transform:translateY(100vh); opacity:0;}
+}
+
+.finalEscena{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:radial-gradient(circle at center, #000010, #000);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:10;
+    overflow:hidden;
+}
+
+#constelacion{
+    position:absolute;
+    top:30%;
+    font-size:60px;
+    letter-spacing:15px;
+    color:white;
+    text-shadow:0 0 20px #fff, 0 0 40px #ffb6c1;
+    opacity:0;
+    transition:2s;
+}
+
+.mensajeFinal{
+    margin-top:200px;
+    text-align:center;
+    opacity:0;
+    transition:2s;
+}
+
+.mensajeFinal button{
+    margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="portal">
+    <h1>
+        Dicen que cada estrella tiene un nombre...<br>
+        pero hay una que brilla diferente.
+    </h1>
+
+```
+<div class="nombre">Valeria ✨</div>
+
+<br><br>
+
+<button onclick="entrar()">Entrar al reino</button>
+```
+
+</div>
+<div class="jardin" id="jardin" style="display:none;">
+
+    <h2>Bienvenida al jardín estelar, Valeria ✨</h2>
+    <p>Toca las estrellas...</p>
+
+</div>
+
+<!--carta-->
+<div class="cartaEscena" id="cartaEscena" style="display:none;">
+    <div class="papel">
+        <p id="textoCarta"></p>
+    </div>
+</div>
+
+<div class="cofreEscena" id="cofreEscena" style="display:none;">
+    <div class="cofreContainer">
+        <h2>Solo una princesa puede abrirlo 👑</h2>
+        <div id="cofreIcono">📦</div>
+        <p id="indicacion">Haz clic para abrirlo...</p>
+    </div>
+</div>
+
+<div class="finalEscena" id="finalEscena" style="display:none;">
+    <div id="constelacion"></div>
+    <div class="mensajeFinal">
+        <h1>En todos los universos...</h1>
+        <h2>Siempre te elegiría a ti, Valeria 💗</h2>
+        <button onclick="location.reload()">Vivir de nuevo ✨</button>
+    </div>
+</div>
+
+<!-- Música -->
+
+<audio id="musica" loop preload="auto">
+    <source src="/musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* Crear estrellas */
+for(let i=0;i<60;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.left=Math.random()*100+"vw";
+    star.style.animationDuration=(5+Math.random()*10)+"s";
+    star.style.opacity=Math.random();
+    document.body.appendChild(star);
+}
+
+/* Al entrar */
+function entrar(){
+    let musica = document.getElementById("musica");
+    musica.volume = 0.5;
+    musica.play().catch(()=>{});
+
+    document.querySelector(".portal").style.display="none";
+    document.getElementById("jardin").style.display="block";
+
+    crearEstrellasMagicas();
+}
+
+function crearEstrellasMagicas(){
+
+    const mensajes = [
+        "Eres más bonita que cualquier constelación 💗",
+        "Hoy el universo decidió brillar contigo ✨",
+        "Tu sonrisa ilumina más que la luna 🌙",
+        "Si fueras estrella, serías la más cercana a mi corazón 💫",
+        "El cielo se ve mejor desde que existes Valeria 💞"
+    ];
+
+    for(let i=0;i<5;i++){
+        let star=document.createElement("div");
+        star.className="starBtn";
+        star.innerHTML="⭐";
+
+        star.style.left=Math.random()*80+10+"vw";
+        star.style.top=Math.random()*70+15+"vh";
+
+        star.onclick=()=>{
+            mostrarMensaje(mensajes[i]);
+        };
+
+        document.body.appendChild(star);
+
+        
+    }
+        // estrella especial carta
+let carta=document.createElement("div");
+carta.className="starBtn";
+carta.innerHTML="💌";
+carta.style.left="50vw";
+carta.style.top="75vh";
+carta.style.fontSize="28px";
+
+carta.onclick=abrirCarta;
+
+document.body.appendChild(carta);
+
+// estrella cofre
+let cofre=document.createElement("div");
+cofre.className="starBtn";
+cofre.innerHTML="🎁";
+cofre.style.left="20vw";
+cofre.style.top="75vh";
+cofre.style.fontSize="28px";
+
+cofre.onclick=abrirCofre;
+
+document.body.appendChild(cofre);
+
+
+
+}
+
+function mostrarMensaje(texto){
+    let mensaje=document.createElement("div");
+    mensaje.innerText=texto;
+
+    mensaje.style.position="absolute";
+    mensaje.style.bottom="15%";
+    mensaje.style.left="50%";
+    mensaje.style.transform="translateX(-50%)";
+    mensaje.style.background="rgba(255,182,193,0.15)";
+    mensaje.style.padding="15px 25px";
+    mensaje.style.borderRadius="20px";
+    mensaje.style.backdropFilter="blur(6px)";
+    mensaje.style.animation="fadeIn 0.5s";
+    mensaje.style.fontSize="18px";
+
+    document.body.appendChild(mensaje);
+
+    setTimeout(()=>mensaje.remove(),3500);
+}
+
+function abrirCarta(){
+    document.getElementById("cartaEscena").style.display="flex";
+    escribirCarta();
+}
+const mensajeCarta = `Valeria...
+
+No sé en qué momento exacto empezaste a ser especial,
+pero sí sé que desde entonces
+todo se siente más bonito.
+
+Entre millones de estrellas,
+mi favorita siempre serás tú.
+
+Gracias por existir 🌙`;
+
+function escribirCarta(){
+
+    let i=0;
+    let velocidad=40;
+    let contenedor=document.getElementById("textoCarta");
+    contenedor.innerHTML="";
+
+    function escribir(){
+        if(i<mensajeCarta.length){
+            contenedor.innerHTML += mensajeCarta.charAt(i);
+            i++;
+            setTimeout(escribir,velocidad);
+        }
+    }
+
+    escribir();
+}
+
+let clics=0;
+
+function abrirCofre(){
+    document.getElementById("cofreEscena").style.display="flex";
+}
+
+document.addEventListener("click",function(e){
+
+    if(e.target.id==="cofreIcono"){
+        clics++;
+
+        crearBrillo();
+
+        if(clics>=5){
+            revelarSorpresa();
+        }
+    }
+});
+
+function crearBrillo(){
+    let corazon=document.createElement("div");
+    corazon.className="corazon";
+    corazon.innerHTML="💖";
+    corazon.style.left=Math.random()*100+"vw";
+    document.body.appendChild(corazon);
+
+    setTimeout(()=>corazon.remove(),3000);
+}
+
+function revelarSorpresa(){
+
+   document.getElementById("cofreIcono").innerHTML="💗";
+    document.getElementById("indicacion").innerHTML=
+    "Dentro de este cofre solo hay una verdad...<br><br>Eres mi casualidad favorita, Valeria ✨<br><br><button onclick='irFinal()'>Ver el destino del reino</button>";
+
+
+}
+
+function irFinal(){
+
+    document.getElementById("cofreEscena").style.display="none";
+    document.getElementById("finalEscena").style.display="flex";
+
+    formarConstelacion();
+}
+
+function formarConstelacion(){
+
+    let nombre="VALERIA ✨";
+    let contenedor=document.getElementById("constelacion");
+
+    setTimeout(()=>{
+        contenedor.innerText=nombre;
+        contenedor.style.opacity=1;
+    },1000);
+
+    setTimeout(()=>{
+        document.querySelector(".mensajeFinal").style.opacity=1;
+    },3000);
+
+}
+
+
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
